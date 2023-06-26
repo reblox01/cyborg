@@ -3,26 +3,9 @@
 <head>
     <title>Cyborg - Support</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-        .success-message {
-            display: none;
-        }
-
-        .loading {
-            animation: spin 1s infinite linear;
-        }
-
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
 <?php
-
 // Define variables and set to empty values
 $name = $last_name = $email = $phone = $subject = $message = "";
 $nameErr = $emailErr = $phoneErr = "";
@@ -68,9 +51,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Send the email
         mail($to, $subject, $message);
 
+        ////////////////SMTP
+        
+        // public $SMTPHost = 'smtp.googlemail.com';
+        // public $SMTPUser = 'YOUR_EMAIL';
+        // public $SMTPPass = 'EMAIL_ACCOUNT_PASSWORD';
+        // public $SMTPPort = 465/587;
+        // public $SMTPTimeout = 60;
+        // public $SMTPCrypto = 'ssl/tls';
+        // public $mailType = 'html';
+        
         // Display a success message
         echo "<div class='container mt-4'>
-                  <div id='successMessage' class='alert alert-success'>Thank you for your message! We will get back to you soon.</div>
+                  <div class='alert alert-success'>Thank you for your message! We will get back to you soon.</div>
               </div>";
     }
 }
@@ -86,11 +79,11 @@ function test_input($data) {
 ?>
 
 <div class="container mt-4">
-    <form id="contactForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <div class="form-group">
             <label for="name">First Name:</label>
             <input type="text" name="name" id="name" class="form-control" required>
-            <span class="text-red-500"><?php echo $nameErr; ?></span>
+            <span class="text-danger"><?php echo $nameErr; ?></span>
         </div>
 
         <div class="form-group">
@@ -101,13 +94,13 @@ function test_input($data) {
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" class="form-control" required>
-            <span class="text-red-500"><?php echo $emailErr; ?></span>
+            <span class="text-danger"><?php echo $emailErr; ?></span>
         </div>
 
         <div class="form-group">
             <label for="phone">Phone Number:</label>
             <input type="text" name="phone" id="phone" class="form-control">
-            <span class="text-red-500"><?php echo $phoneErr; ?></span>
+            <span class="text-danger"><?php echo $phoneErr; ?></span>
         </div>
 
         <div class="form-group">

@@ -361,6 +361,7 @@ Header Style
   -moz-transition: all .5s ease 0s;
   -o-transition: all .5s ease 0s;
   transition: all .5s ease 0s;
+  padding: 3px;
 }
 
 .header-area .main-nav {

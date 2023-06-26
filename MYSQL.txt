@@ -1,0 +1,35 @@
+create database profile;
+use profile;
+create table vuer1(
+vuer_id int priamry key unique not null,
+vuer_name varchar(50) not null,
+vuer_email varchar(50) not null,
+vuer_pnum int not null,
+vuer_age int not null);
+vuer_followes varchar(50);
+
+insert into vuer(email,name)
+values($email,$name);
+
+create table vuer3(
+vuer_id int priamry key unique not null,
+vuer_name varchar(50) not null,
+vuer_email varchar(50) not null,
+vuer_pnum int not null,
+vuer_age int not null);
+vuer_followes varchar(50);
+
+insert into vuer(email,name)
+values($email,$name);
+
+create table vuer3(
+vuer_id int priamry key unique not null,
+vuer_name varchar(50) not null,
+vuer_email varchar(50) not null,
+vuer_pnum int not null,
+vuer_age int not null);
+vuer_followes varchar(50);
+
+insert into vuer(email,name)
+values($email,$name);
+
